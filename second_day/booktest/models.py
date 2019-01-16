@@ -4,6 +4,15 @@ from django.db import models
 class BookInfoManager(models.Manager):
     def get_queryset(self):
         return super(BookInfoManager, self).get_queryset().filter(isDelete=False)
+    #第二种方法是在自定义管理器中创建对象的对象方法
+    def create(cls, btitle, bpub_date):
+        b = BookInfo()
+        b.btitle = btitle
+        b.bpub_date = bpub_date
+        b.bread = 0
+        b.bcommet = 0
+        b.isDelete = False
+        return b
 
 
 # Create your models here.
@@ -20,16 +29,16 @@ class BookInfo(models.Model):
 
     book1 = models.Manager()    #这个是原始的管理器
     book2 = BookInfoManager()   #这个是自定义的管理器
-    #自定义创建模型对象
-    @classmethod
-    def create(cls, btitle, bpub_date):
-        b = BookInfo()
-        b.btitle = btitle
-        b.bpub_date = bpub_date
-        b.bread = 0
-        b.bcommet = 0
-        b.isDelete = False
-        return b
+    # #第一种自定义创建模型对象
+    # @classmethod
+    # def create(cls, btitle, bpub_date):
+    #     b = BookInfo()
+    #     b.btitle = btitle
+    #     b.bpub_date = bpub_date
+    #     b.bread = 0
+    #     b.bcommet = 0
+    #     b.isDelete = False
+    #     return b
 
 
 
