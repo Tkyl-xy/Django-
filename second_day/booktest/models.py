@@ -27,6 +27,9 @@ class BookInfo(models.Model):
     bcommet = models.IntegerField(default=0)
     isDelete = models.BooleanField(default=False)
 
+    def __str__(self):
+        return self.btitle
+
     book1 = models.Manager()    #这个是原始的管理器
     book2 = BookInfoManager()   #这个是自定义的管理器
     #第一种自定义创建模型对象
@@ -58,7 +61,9 @@ class HeroInfo(models.Model):
     # 那么除非你检索时特意额外地使用了 order_by()，
     # 否则，当你使用 Django 的数据库 API 去检索时，
     # HeroInfo对象的相关返回值默认地都会按 name 字段排序。
-    def __unicode__(self):
+    # def __unicode__(self):
+    #     return self.hname
+    def __str__(self):
         return self.hname
 
     '''
