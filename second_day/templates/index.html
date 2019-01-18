@@ -2,9 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>查询集的使用</title>
 </head>
 <body>
-$END$
+<h1>英雄数据的阅读量大于评论数的书籍</h1>
+<ul>
+{% for i in bg %}
+    <li>{{ i.btitle }} 阅读量为[{{ i.bread }}] 评论量为[{{ i.bcommet }}]</li>
+{% endfor %}
+</ul>
+<br>
+<h1>英雄数据的阅读量小于评论数的书籍</h1>
+<ul>
+{% for i in bg1 %}
+    <li>{{ i.btitle }} 阅读量为[{{ i.bread }}] 评论量为[{{ i.bcommet }}]</li>
+{% endfor %}
+</ul>
 </body>
 </html>

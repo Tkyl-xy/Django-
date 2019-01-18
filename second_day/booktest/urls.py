@@ -5,3 +5,9 @@
 # @Site    : 
 # @File    : urls.py
 # @Software: PyCharm2018.2
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('index/', views.index)
+]
